@@ -1,4 +1,4 @@
-query Banks($dummy: Int)
+query Banks
         {
             banks {
                 ...BankListParts

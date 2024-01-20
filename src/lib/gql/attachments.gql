@@ -1,4 +1,4 @@
-query Attachments($dummy: Int)
+query Attachments
 {
     attachments {
         ...AttachmentListParts

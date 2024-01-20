@@ -1,4 +1,4 @@
-query AccountingSchemes($dummy: Int)
+query AccountingSchemes
         {
             accountingSchemes {
                 ...AccountingSchemeListParts

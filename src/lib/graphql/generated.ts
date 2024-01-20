@@ -827,9 +827,7 @@ export type AccountingSchemeByIdQueryVariables = Exact<{
 
 export type AccountingSchemeByIdQuery = { __typename?: 'Query', accountingScheme: { __typename?: 'AccountingScheme', id: number, displayName: string, currency: { __typename?: 'Currency', id: number, isoCode: string, displayName: string } } };
 
-export type AccountingSchemesQueryVariables = Exact<{
-  dummy?: InputMaybe<Scalars['Int']['input']>;
-}>;
+export type AccountingSchemesQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type AccountingSchemesQuery = { __typename?: 'Query', accountingSchemes: Array<{ __typename?: 'AccountingScheme', id: number, displayName: string, currency: { __typename?: 'Currency', id: number, isoCode: string, displayName: string } }> };
@@ -847,9 +845,7 @@ export type AttachmentByIdQueryVariables = Exact<{
 
 export type AttachmentByIdQuery = { __typename?: 'Query', attachment: { __typename?: 'Attachment', id: string, displayName: string, isFolder: boolean, size: number, lastModified: any } };
 
-export type AttachmentsQueryVariables = Exact<{
-  dummy?: InputMaybe<Scalars['Int']['input']>;
-}>;
+export type AttachmentsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type AttachmentsQuery = { __typename?: 'Query', attachments: Array<{ __typename?: 'Attachment', id: string, displayName: string, isFolder: boolean, size: number, lastModified: any }> };
@@ -869,9 +865,7 @@ export type BankByIdQueryVariables = Exact<{
 
 export type BankByIdQuery = { __typename?: 'Query', bank: { __typename?: 'Bank', id: number, displayName: string, bankIdentifierCode: string } };
 
-export type BanksQueryVariables = Exact<{
-  dummy?: InputMaybe<Scalars['Int']['input']>;
-}>;
+export type BanksQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type BanksQuery = { __typename?: 'Query', banks: Array<{ __typename?: 'Bank', id: number, displayName: string, bankIdentifierCode: string }> };
@@ -883,9 +877,7 @@ export type ConfirmSalesInvoiceMutationVariables = Exact<{
 
 export type ConfirmSalesInvoiceMutation = { __typename?: 'Mutation', confirmSalesInvoice: { __typename?: 'SalesInvoice', documentNo?: string | null, dueDate: any, grandTotal: number, grandTotalAccountingSchemeCurrency: number, id: number, isActive: boolean, isCalculated: boolean, isCurrent: boolean, isDraft: boolean, issuedOn: any, paymentTermInDays: number, printDate?: any | null, printed: boolean, printError?: string | null, printLanguageIsoCode: string, reverseCharge: boolean, totalLines: number, totalLinesAccountingSchemeCurrency: number, transactionDate: any, currency: { __typename?: 'Currency', id: number, isoCode: string, displayName: string }, customer: { __typename?: 'Customer', id: number, legalName: string, displayName: string, vatNumber?: string | null, invoicingEmail: string, note?: string | null, legalAddress: { __typename?: 'Address', id: number, city: string, line1: string, zipCode: string, country: { __typename?: 'Country', id: number, displayName: string, isoCode: string } }, address?: { __typename?: 'Address', id: number, city: string, line1: string, zipCode: string, country: { __typename?: 'Country', id: number, displayName: string, isoCode: string } } | null }, lines: Array<{ __typename?: 'SalesInvoiceLine', id: number, lineOrder: number, linePrice: number, narration: string, quantity: number, product: { __typename?: 'Product', id: number } }>, organization: { __typename?: 'Organization', id: number, displayName: string, legalName: string, registration: string, contact: string, idNumber: string, vatNumber?: string | null, legalAddress: { __typename?: 'Address', id: number, city: string, line1: string, zipCode: string, country: { __typename?: 'Country', id: number, displayName: string, isoCode: string } }, bankAccount: { __typename?: 'BankAccount', id: number, displayName: string, bankAccountCustomerPrintableNumber: string, iban: string, swift: string, bank: { __typename?: 'Bank', id: number, displayName: string, bankIdentifierCode: string } }, accountingScheme: { __typename?: 'AccountingScheme', id: number, displayName: string, currency: { __typename?: 'Currency', id: number, isoCode: string, displayName: string } }, documentNumberSequences: { __typename?: 'DocumentNumberSequence', current: number } }, vatReport: Array<{ __typename?: 'SalesInvoiceVat', id: number, vatRatePercent: number, vatTotal: number, vatTotalAccountingSchemeCurrency: number, vatTotalAccountingSchemeCurrencyRaw: number, vatTotalRaw: number }>, factoringProvider?: { __typename?: 'FactoringProvider', contact: string, displayName: string, id: number, legalName: string } | null } };
 
-export type CountriesQueryVariables = Exact<{
-  dummy?: InputMaybe<Scalars['Int']['input']>;
-}>;
+export type CountriesQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type CountriesQuery = { __typename?: 'Query', countries: Array<{ __typename?: 'Country', id: number, displayName: string, isoCode: string }> };
@@ -901,9 +893,7 @@ export type CountryByIdQueryVariables = Exact<{
 
 export type CountryByIdQuery = { __typename?: 'Query', country: { __typename?: 'Country', id: number, displayName: string, isoCode: string } };
 
-export type CurrenciesQueryVariables = Exact<{
-  dummy?: InputMaybe<Scalars['Int']['input']>;
-}>;
+export type CurrenciesQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type CurrenciesQuery = { __typename?: 'Query', currencies: Array<{ __typename?: 'Currency', id: number, isoCode: string, displayName: string }> };
@@ -945,16 +935,12 @@ export type CustomerGroupByIdQueryVariables = Exact<{
 
 export type CustomerGroupByIdQuery = { __typename?: 'Query', customerGroup: { __typename?: 'CustomerGroup', id: number, displayName: string, customers?: Array<{ __typename?: 'Customer', id: number, legalName: string, displayName: string, vatNumber?: string | null, invoicingEmail: string, note?: string | null, legalAddress: { __typename?: 'Address', id: number, city: string, line1: string, zipCode: string, country: { __typename?: 'Country', id: number, displayName: string, isoCode: string } }, address?: { __typename?: 'Address', id: number, city: string, line1: string, zipCode: string, country: { __typename?: 'Country', id: number, displayName: string, isoCode: string } } | null }> | null, customerPriceLists?: Array<{ __typename?: 'CustomerPriceList', id: number, displayName: string, validFrom?: any | null, validTo?: any | null, productPrices?: Array<{ __typename?: 'CustomerProductPrice', id: number, sellingPrice: number, product: { __typename?: 'Product', id: number, sku: string, displayName: string }, currency: { __typename?: 'Currency', id: number, isoCode: string, displayName: string } }> | null }> | null } };
 
-export type CustomerGroupsQueryVariables = Exact<{
-  dummy?: InputMaybe<Scalars['Int']['input']>;
-}>;
+export type CustomerGroupsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type CustomerGroupsQuery = { __typename?: 'Query', customerGroups: Array<{ __typename?: 'CustomerGroup', id: number, displayName: string }> };
 
-export type CustomersQueryVariables = Exact<{
-  dummy?: InputMaybe<Scalars['Int']['input']>;
-}>;
+export type CustomersQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type CustomersQuery = { __typename?: 'Query', customers: Array<{ __typename?: 'Customer', id: number, legalName: string, displayName: string, vatNumber?: string | null, invoicingEmail: string, note?: string | null, legalAddress: { __typename?: 'Address', id: number, city: string, line1: string, zipCode: string, country: { __typename?: 'Country', id: number, displayName: string, isoCode: string } }, address?: { __typename?: 'Address', id: number, city: string, line1: string, zipCode: string, country: { __typename?: 'Country', id: number, displayName: string, isoCode: string } } | null }> };
@@ -970,9 +956,7 @@ export type FactoringContractByIdQueryVariables = Exact<{
 
 export type FactoringContractByIdQuery = { __typename?: 'Query', factoringContract: { __typename?: 'FactoringContract', id: number, invoicePrintNote: string, customer: { __typename?: 'Customer', id: number, legalName: string, displayName: string, vatNumber?: string | null, invoicingEmail: string, note?: string | null, legalAddress: { __typename?: 'Address', id: number, city: string, line1: string, zipCode: string, country: { __typename?: 'Country', id: number, displayName: string, isoCode: string } }, address?: { __typename?: 'Address', id: number, city: string, line1: string, zipCode: string, country: { __typename?: 'Country', id: number, displayName: string, isoCode: string } } | null }, organization: { __typename?: 'Organization', contact: string, displayName: string, id: number, idNumber: string, legalName: string, registration: string, vatNumber?: string | null }, factoringProvider: { __typename?: 'FactoringProvider', contact: string, displayName: string, id: number, legalName: string } } };
 
-export type FactoringContractsQueryVariables = Exact<{
-  dummy?: InputMaybe<Scalars['Int']['input']>;
-}>;
+export type FactoringContractsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type FactoringContractsQuery = { __typename?: 'Query', factoringContracts: Array<{ __typename?: 'FactoringContract', id: number, invoicePrintNote: string, customer: { __typename?: 'Customer', id: number, legalName: string, displayName: string, vatNumber?: string | null, invoicingEmail: string, note?: string | null, legalAddress: { __typename?: 'Address', id: number, city: string, line1: string, zipCode: string, country: { __typename?: 'Country', id: number, displayName: string, isoCode: string } }, address?: { __typename?: 'Address', id: number, city: string, line1: string, zipCode: string, country: { __typename?: 'Country', id: number, displayName: string, isoCode: string } } | null }, organization: { __typename?: 'Organization', contact: string, displayName: string, id: number, idNumber: string, legalName: string, registration: string, vatNumber?: string | null }, factoringProvider: { __typename?: 'FactoringProvider', contact: string, displayName: string, id: number, legalName: string } }> };
@@ -988,9 +972,7 @@ export type FactoringProviderByIdQueryVariables = Exact<{
 
 export type FactoringProviderByIdQuery = { __typename?: 'Query', factoringProvider: { __typename?: 'FactoringProvider', id: number, displayName: string, legalName: string, contact: string, bankAccount: { __typename?: 'BankAccount', id: number, displayName: string, bankAccountCustomerPrintableNumber: string, iban: string, swift: string, bank: { __typename?: 'Bank', id: number, displayName: string, bankIdentifierCode: string } } } };
 
-export type FactoringProvidersQueryVariables = Exact<{
-  dummy?: InputMaybe<Scalars['Int']['input']>;
-}>;
+export type FactoringProvidersQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type FactoringProvidersQuery = { __typename?: 'Query', factoringProviders: Array<{ __typename?: 'FactoringProvider', contact: string, displayName: string, id: number, legalName: string }> };
@@ -999,6 +981,15 @@ export type MailSentFromQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type MailSentFromQuery = { __typename?: 'Query', mailSentFrom: string };
+
+export type MenuQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type MenuQuery = { __typename?: 'Query', menu: Array<{ __typename?: 'Menu', id: number, displayName: string, items: Array<{ __typename?: 'MenuItem', id: number, to: string, displayName: string }> }> };
+
+export type MenuListPartsFragment = { __typename?: 'Menu', id: number, displayName: string, items: Array<{ __typename?: 'MenuItem', id: number, to: string, displayName: string }> };
+
+export type MenuItemListPartsFragment = { __typename?: 'MenuItem', id: number, to: string, displayName: string };
 
 export type OrganizationDetailPartsFragment = { __typename?: 'Organization', id: number, displayName: string, legalName: string, registration: string, contact: string, idNumber: string, vatNumber?: string | null, legalAddress: { __typename?: 'Address', id: number, city: string, line1: string, zipCode: string, country: { __typename?: 'Country', id: number, displayName: string, isoCode: string } }, bankAccount: { __typename?: 'BankAccount', id: number, displayName: string, bankAccountCustomerPrintableNumber: string, iban: string, swift: string, bank: { __typename?: 'Bank', id: number, displayName: string, bankIdentifierCode: string } }, accountingScheme: { __typename?: 'AccountingScheme', id: number, displayName: string, currency: { __typename?: 'Currency', id: number, isoCode: string, displayName: string } }, documentNumberSequences: { __typename?: 'DocumentNumberSequence', current: number } };
 
@@ -1011,9 +1002,7 @@ export type OrganizationByIdQueryVariables = Exact<{
 
 export type OrganizationByIdQuery = { __typename?: 'Query', organization: { __typename?: 'Organization', id: number, displayName: string, legalName: string, registration: string, contact: string, idNumber: string, vatNumber?: string | null, legalAddress: { __typename?: 'Address', id: number, city: string, line1: string, zipCode: string, country: { __typename?: 'Country', id: number, displayName: string, isoCode: string } }, bankAccount: { __typename?: 'BankAccount', id: number, displayName: string, bankAccountCustomerPrintableNumber: string, iban: string, swift: string, bank: { __typename?: 'Bank', id: number, displayName: string, bankIdentifierCode: string } }, accountingScheme: { __typename?: 'AccountingScheme', id: number, displayName: string, currency: { __typename?: 'Currency', id: number, isoCode: string, displayName: string } }, documentNumberSequences: { __typename?: 'DocumentNumberSequence', current: number } } };
 
-export type OrganizationsQueryVariables = Exact<{
-  dummy?: InputMaybe<Scalars['Int']['input']>;
-}>;
+export type OrganizationsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type OrganizationsQuery = { __typename?: 'Query', organizations: Array<{ __typename?: 'Organization', contact: string, displayName: string, id: number, idNumber: string, legalName: string, registration: string, vatNumber?: string | null }> };
@@ -1029,9 +1018,7 @@ export type ProductByIdQueryVariables = Exact<{
 
 export type ProductByIdQuery = { __typename?: 'Query', product: { __typename?: 'Product', id: number, displayName: string, sku: string, defaultUoM?: { __typename?: 'UnitOfMeasurement', id: number, displayName: string } | null } };
 
-export type ProductsQueryVariables = Exact<{
-  dummy?: InputMaybe<Scalars['Int']['input']>;
-}>;
+export type ProductsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type ProductsQuery = { __typename?: 'Query', products: Array<{ __typename?: 'Product', id: number, sku: string, displayName: string }> };
@@ -1328,6 +1315,22 @@ export const FactoringProviderDetailPartsFragmentDoc = gql`
   }
 }
     ${BankAccountListPartsFragmentDoc}`;
+export const MenuItemListPartsFragmentDoc = gql`
+    fragment MenuItemListParts on MenuItem {
+  id
+  to
+  displayName
+}
+    `;
+export const MenuListPartsFragmentDoc = gql`
+    fragment MenuListParts on Menu {
+  id
+  displayName
+  items {
+    ...MenuItemListParts
+  }
+}
+    ${MenuItemListPartsFragmentDoc}`;
 export const UnitOfMeasurementDetailPartsFragmentDoc = gql`
     fragment UnitOfMeasurementDetailParts on UnitOfMeasurement {
   id
@@ -1463,7 +1466,7 @@ export const AccountingSchemeByIdDoc = gql`
 }
     ${AccountingSchemeDetailPartsFragmentDoc}`;
 export const AccountingSchemesDoc = gql`
-    query AccountingSchemes($dummy: Int) {
+    query AccountingSchemes {
   accountingSchemes {
     ...AccountingSchemeListParts
   }
@@ -1477,7 +1480,7 @@ export const AttachmentByIdDoc = gql`
 }
     ${AttachmentListPartsFragmentDoc}`;
 export const AttachmentsDoc = gql`
-    query Attachments($dummy: Int) {
+    query Attachments {
   attachments {
     ...AttachmentListParts
   }
@@ -1491,7 +1494,7 @@ export const BankByIdDoc = gql`
 }
     ${BankDetailPartsFragmentDoc}`;
 export const BanksDoc = gql`
-    query Banks($dummy: Int) {
+    query Banks {
   banks {
     ...BankListParts
   }
@@ -1505,7 +1508,7 @@ export const ConfirmSalesInvoiceDoc = gql`
 }
     ${SalesInvoiceDetailPartsFragmentDoc}`;
 export const CountriesDoc = gql`
-    query Countries($dummy: Int) {
+    query Countries {
   countries {
     ...CountryListParts
   }
@@ -1519,7 +1522,7 @@ export const CountryByIdDoc = gql`
 }
     ${CountryDetailPartsFragmentDoc}`;
 export const CurrenciesDoc = gql`
-    query Currencies($dummy: Int) {
+    query Currencies {
   currencies {
     ...CurrencyListParts
   }
@@ -1547,14 +1550,14 @@ export const CustomerGroupByIdDoc = gql`
 }
     ${CustomerGroupDetailPartsFragmentDoc}`;
 export const CustomerGroupsDoc = gql`
-    query CustomerGroups($dummy: Int) {
+    query CustomerGroups {
   customerGroups {
     ...CustomerGroupListParts
   }
 }
     ${CustomerGroupListPartsFragmentDoc}`;
 export const CustomersDoc = gql`
-    query Customers($dummy: Int) {
+    query Customers {
   customers {
     ...CustomerListParts
   }
@@ -1568,7 +1571,7 @@ export const FactoringContractByIdDoc = gql`
 }
     ${FactoringContractDetailPartsFragmentDoc}`;
 export const FactoringContractsDoc = gql`
-    query FactoringContracts($dummy: Int) {
+    query FactoringContracts {
   factoringContracts {
     ...FactoringContractListParts
   }
@@ -1582,7 +1585,7 @@ export const FactoringProviderByIdDoc = gql`
 }
     ${FactoringProviderDetailPartsFragmentDoc}`;
 export const FactoringProvidersDoc = gql`
-    query FactoringProviders($dummy: Int) {
+    query FactoringProviders {
   factoringProviders {
     ...FactoringProviderListParts
   }
@@ -1593,6 +1596,13 @@ export const MailSentFromDoc = gql`
   mailSentFrom
 }
     `;
+export const MenuDoc = gql`
+    query Menu {
+  menu {
+    ...MenuListParts
+  }
+}
+    ${MenuListPartsFragmentDoc}`;
 export const OrganizationByIdDoc = gql`
     query organizationById($id: Int!) {
   organization(id: $id) {
@@ -1601,7 +1611,7 @@ export const OrganizationByIdDoc = gql`
 }
     ${OrganizationDetailPartsFragmentDoc}`;
 export const OrganizationsDoc = gql`
-    query Organizations($dummy: Int) {
+    query Organizations {
   organizations {
     ...OrganizationListParts
   }
@@ -1615,7 +1625,7 @@ export const ProductByIdDoc = gql`
 }
     ${ProductDetailPartsFragmentDoc}`;
 export const ProductsDoc = gql`
-    query Products($dummy: Int) {
+    query Products {
   products {
     ...ProductListParts
   }
@@ -2326,6 +2336,41 @@ export const MailSentFrom = (
             return result;
           }
         
+export const Menu = (
+            options: Omit<
+              WatchQueryOptions<MenuQueryVariables>, 
+              "query"
+            >
+          ): Readable<
+            ApolloQueryResult<MenuQuery> & {
+              query: ObservableQuery<
+                MenuQuery,
+                MenuQueryVariables
+              >;
+            }
+          > => {
+            const q = client.watchQuery({
+              query: MenuDoc,
+              ...options,
+            });
+            var result = readable<
+              ApolloQueryResult<MenuQuery> & {
+                query: ObservableQuery<
+                  MenuQuery,
+                  MenuQueryVariables
+                >;
+              }
+            >(
+              { data: {} as any, loading: true, error: undefined, networkStatus: 1, query: q },
+              (set) => {
+                q.subscribe((v: any) => {
+                  set({ ...v, query: q });
+                });
+              }
+            );
+            return result;
+          }
+        
 export const organizationById = (
             options: Omit<
               WatchQueryOptions<OrganizationByIdQueryVariables>, 
@@ -2538,25 +2583,25 @@ export const SalesInvoices = (
               >;
             }
           > => {
-            const q = client.watchQuery({
-              query: SalesInvoicesDoc,
-              ...options,
-            });
-            var result = readable<
-              ApolloQueryResult<SalesInvoicesQuery> & {
-                query: ObservableQuery<
-                  SalesInvoicesQuery,
-                  SalesInvoicesQueryVariables
-                >;
-              }
-            >(
-              { data: {} as any, loading: true, error: undefined, networkStatus: 1, query: q },
-              (set) => {
-                q.subscribe((v: any) => {
-                  set({ ...v, query: q });
-                });
-              }
-            );
-            return result;
-          }
+  const q = client.watchQuery({
+    query: SalesInvoicesDoc,
+    ...options,
+  });
+  var result = readable<
+      ApolloQueryResult<SalesInvoicesQuery> & {
+    query: ObservableQuery<
+        SalesInvoicesQuery,
+        SalesInvoicesQueryVariables
+    >;
+  }
+  >(
+      {data: {} as any, loading: true, error: undefined, networkStatus: 1, query: q},
+      (set) => {
+        q.subscribe((v: any) => {
+          set({...v, query: q});
+        });
+      }
+  );
+  return result;
+}
         

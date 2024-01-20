@@ -1,4 +1,4 @@
-query CustomerGroups($dummy: Int)
+query CustomerGroups
         {
             customerGroups {
                 ...CustomerGroupListParts

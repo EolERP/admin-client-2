@@ -1,4 +1,4 @@
-query Products($dummy: Int)
+query Products
         {
             products {
                 ...ProductListParts

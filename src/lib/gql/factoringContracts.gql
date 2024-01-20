@@ -1,4 +1,4 @@
-query FactoringContracts($dummy: Int)
+query FactoringContracts
         {
             factoringContracts {
                 ...FactoringContractListParts

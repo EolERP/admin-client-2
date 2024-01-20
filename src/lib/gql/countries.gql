@@ -1,4 +1,4 @@
-query Countries($dummy: Int)
+query Countries
         {
             countries {
                 ...CountryListParts

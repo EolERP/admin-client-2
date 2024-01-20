@@ -1,4 +1,4 @@
-query Currencies($dummy: Int)
+query Currencies
 {
     currencies {
         ...CurrencyListParts
