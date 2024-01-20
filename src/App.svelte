@@ -2,6 +2,13 @@
   import svelteLogo from './assets/svelte.svg'
   import viteLogo from '/vite.svg'
   import Counter from './lib/Counter.svelte'
+  import {tokenStore} from "./keycloak";
+  import Wrapper from "./lib/Wrapper.svelte";
+  let token;
+
+  tokenStore.subscribe((value) => {
+    token=value;
+  });
 </script>
 
 <main>
@@ -15,9 +22,13 @@
   </div>
   <h1>Vite + Svelte</h1>
 
+  {#if token}
   <div class="card">
-    <Counter />
+    <Wrapper>
+      <Counter />
+    </Wrapper>
   </div>
+  {/if}
 
   <p>
     Check out <a href="https://github.com/sveltejs/kit#readme" target="_blank" rel="noreferrer">SvelteKit</a>, the official Svelte app framework powered by Vite!

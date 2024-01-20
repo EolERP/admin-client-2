@@ -1,6 +1,7 @@
 import Keycloak from 'keycloak-js';
+import { writable } from 'svelte/store';
 
-export const authenticate = (callback: () => void): void => {
+export const authenticate = (callback: (token: string) => void): void => {
     if (!import.meta.env.VITE_MOCK && !import.meta.env.VITE_FAKE_TOKEN && !(window as any).token) {
         const keycloak = new Keycloak({
             url: import.meta.env.VITE_KEYCLOAK_BASE_URL,
@@ -20,7 +21,7 @@ export const authenticate = (callback: () => void): void => {
                     const { token } = keycloak;
                     if (token) {
                         (window as any).token = token;
-                        if (callback) { callback(); }
+                        if (callback) { callback(token); }
                     }
                 }
             })
@@ -30,3 +31,5 @@ export const authenticate = (callback: () => void): void => {
             });
     }
 };
+
+export const tokenStore = writable(undefined);
