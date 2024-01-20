@@ -29,6 +29,7 @@
     "graphql-request": "^6.1.0",
     "graphql-ws": "^5.14.3",
     "keycloak-js": "^23.0.4",
-    "svelte-i18n": "^4.0.0"
+    "svelte-i18n": "^4.0.0",
+    "svelte-spa-router": "^4.0.1"
   }
 }
