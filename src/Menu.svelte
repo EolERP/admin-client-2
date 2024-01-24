@@ -5,6 +5,7 @@
 
     export let segment: string;
     export let mobile: boolean | null;
+
     $: menu = Menu({})
 
     $: {

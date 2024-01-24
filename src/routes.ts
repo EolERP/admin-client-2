@@ -57,6 +57,9 @@ import EditAttachment from './pages/EditAttachment.svelte';
 import AttachmentDetail from './pages/AttachmentDetail.svelte';
 */
 import Home from "./pages/Home.svelte";
+import {urls} from "./pages/pathAndSegment";
+import Lists from "./pages/Lists.svelte";
+import Countries from "./pages/Countries.svelte";
 
 export const routes = {
     // Exact path
@@ -77,6 +80,12 @@ const addRoute = (path: string, component: any) => {
     (routes as any)[`/${path}`] = component;
 };
 
+addRoute(urls.settings.list, Lists);
+addRoute(urls.countries.list, Countries);
+/*addRoute(urls.countries.edit, EditCountry);
+addRoute(urls.countries.add, AddCountry);
+addRoute(urls.countries.detail, CountryDetail);*/
+
 /*addRoute(segments.customers, Customers);
 addRoute(urls.customer.add, AddCustomer);
 addRoute(urls.customer.edit, EditCustomer);
@@ -85,16 +94,11 @@ addRoute(urls.salesInvoices.list, SalesInvoices);
 addRoute(urls.salesInvoices.edit, EditSalesInvoice);
 addRoute(urls.salesInvoices.detail, SalesInvoiceDetail);
 addRoute(urls.salesInvoices.publish, SalesInvoicePublish);
-addRoute(urls.settings.list, Lists);
 addRoute(urls.products.list, Products);
 addRoute(urls.products.edit, EditProduct);
 addRoute(urls.products.add, AddProduct);
 addRoute(urls.products.detail, ProductDetail);
 addRoute(urls.salesInvoices.add, AddSalesInvoice);
-addRoute(urls.countries.list, Countries);
-addRoute(urls.countries.edit, EditCountry);
-addRoute(urls.countries.add, AddCountry);
-addRoute(urls.countries.detail, CountryDetail);
 addRoute(urls.currencies.list, Currencies);
 addRoute(urls.currencies.edit, EditCurrency);
 addRoute(urls.currencies.add, AddCurrency);
