@@ -3,18 +3,11 @@
     import { segments, urls } from './pathAndSegment';
     import { _ } from 'svelte-i18n';
     import Page from '../Page.svelte';
-    import {Countries} from "../lib/graphql/generated";
     import {countriesStore} from "../lib/core/country";
-
-    $: countries = $countriesStore ? null : Countries({})
-
-    $: {
-        if ($countries && $countries.data.countries) {
-            $countriesStore = $countries.data.countries;
-        }
-    }
+    import CountryLoader from "../components/countries/CountryLoader.svelte";
 </script>
 
+<CountryLoader />
 <Page title={$_('page.countries.title')} segment={segments.countries} name="page.countries">
     <span slot="content">
         {#if $countriesStore}
