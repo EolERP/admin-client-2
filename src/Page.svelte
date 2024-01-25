@@ -1,12 +1,14 @@
 <script lang="ts">
     import Nav from './Nav.svelte';
     import { profileMenuOpened } from './lib/core';
+    import CountryLoader from "./components/countries/CountryLoader.svelte";
 
     export let title: string | undefined = undefined;
     export let segment: string;
     export let name: string | undefined = undefined;
 </script>
 
+<CountryLoader />
 <Nav {segment} />
 <header class="bg-white shadow" on:click={() => profileMenuOpened.update(() => false)}>
     <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">

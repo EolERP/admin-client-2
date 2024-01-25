@@ -6,7 +6,7 @@
     import {Countries} from "../lib/graphql/generated";
     import {countriesStore} from "../lib/core/country";
 
-    $: countries = Countries({})
+    $: countries = $countriesStore ? null : Countries({})
 
     $: {
         if ($countries && $countries.data.countries) {
