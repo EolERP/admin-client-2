@@ -1,9 +1,9 @@
 <script lang="ts">
     import DataGrid from '../../molecules/datagrid/Datagrid.svelte';
-    import type { RowAction } from 'src/molecules/datagrid/types';
     import FirstColumn from './FirstColumn.svelte';
     import { _ } from 'svelte-i18n';
     import type { CountryRow } from '../../lib/model/country';
+    import type {RowAction} from "../../molecules/datagrid/types";
 
     export let countries: CountryRow[] | undefined;
 
