@@ -348,6 +348,7 @@ type Mutation {
   saveOrganization(args: OrganizationSaveArgs!): Organization!
   saveProduct(args: ProductSaveArgs!): Product!
   saveSalesInvoice(args: SalesInvoiceSaveArgs!): SalesInvoice!
+  saveTax(args: TaxSaveArgs!): Tax!
 }
 
 type Organization {
@@ -442,6 +443,8 @@ type Query {
   salesInvoice(id: Int!): SalesInvoice!
   salesInvoices: [SalesInvoice!]!
   salesInvoicesReport: [SalesInvoicesInTime!]!
+  tax(id: Int!): Tax!
+  taxes: [Tax!]!
 }
 
 type SalesInvoice {
@@ -546,6 +549,20 @@ type SalesInvoicesInTime {
   date: String!
   group: String!
   value: Float!
+}
+
+type Tax {
+  id: Float!
+  isStandard: Boolean!
+  ratePercent: Float!
+  updtOp: User!
+}
+
+input TaxSaveArgs {
+  displayName: String!
+  id: Int
+  isStandard: Boolean!
+  ratePercent: Float!
 }
 
 type UnitOfMeasurement {

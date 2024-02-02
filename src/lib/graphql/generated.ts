@@ -388,6 +388,7 @@ export type Mutation = {
   saveOrganization: Organization;
   saveProduct: Product;
   saveSalesInvoice: SalesInvoice;
+  saveTax: Tax;
 };
 
 
@@ -490,6 +491,11 @@ export type MutationSaveSalesInvoiceArgs = {
   args: SalesInvoiceSaveArgs;
 };
 
+
+export type MutationSaveTaxArgs = {
+  args: TaxSaveArgs;
+};
+
 export type Organization = {
   __typename?: 'Organization';
   accountingScheme: AccountingScheme;
@@ -585,6 +591,8 @@ export type Query = {
   salesInvoice: SalesInvoice;
   salesInvoices: Array<SalesInvoice>;
   salesInvoicesReport: Array<SalesInvoicesInTime>;
+  tax: Tax;
+  taxes: Array<Tax>;
 };
 
 
@@ -675,6 +683,11 @@ export type QueryProductArgs = {
 
 
 export type QuerySalesInvoiceArgs = {
+  id: Scalars['Int']['input'];
+};
+
+
+export type QueryTaxArgs = {
   id: Scalars['Int']['input'];
 };
 
@@ -784,6 +797,21 @@ export type SalesInvoicesInTime = {
   date: Scalars['String']['output'];
   group: Scalars['String']['output'];
   value: Scalars['Float']['output'];
+};
+
+export type Tax = {
+  __typename?: 'Tax';
+  id: Scalars['Float']['output'];
+  isStandard: Scalars['Boolean']['output'];
+  ratePercent: Scalars['Float']['output'];
+  updtOp: User;
+};
+
+export type TaxSaveArgs = {
+  displayName: Scalars['String']['input'];
+  id?: InputMaybe<Scalars['Int']['input']>;
+  isStandard: Scalars['Boolean']['input'];
+  ratePercent: Scalars['Float']['input'];
 };
 
 export type UnitOfMeasurement = {
@@ -2583,25 +2611,25 @@ export const SalesInvoices = (
               >;
             }
           > => {
-  const q = client.watchQuery({
-    query: SalesInvoicesDoc,
-    ...options,
-  });
-  var result = readable<
-      ApolloQueryResult<SalesInvoicesQuery> & {
-    query: ObservableQuery<
-        SalesInvoicesQuery,
-        SalesInvoicesQueryVariables
-    >;
-  }
-  >(
-      {data: {} as any, loading: true, error: undefined, networkStatus: 1, query: q},
-      (set) => {
-        q.subscribe((v: any) => {
-          set({...v, query: q});
-        });
-      }
-  );
-  return result;
-}
+            const q = client.watchQuery({
+              query: SalesInvoicesDoc,
+              ...options,
+            });
+            var result = readable<
+              ApolloQueryResult<SalesInvoicesQuery> & {
+                query: ObservableQuery<
+                  SalesInvoicesQuery,
+                  SalesInvoicesQueryVariables
+                >;
+              }
+            >(
+              { data: {} as any, loading: true, error: undefined, networkStatus: 1, query: q },
+              (set) => {
+                q.subscribe((v: any) => {
+                  set({ ...v, query: q });
+                });
+              }
+            );
+            return result;
+          }
         
