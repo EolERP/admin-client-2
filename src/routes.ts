@@ -61,6 +61,7 @@ import {urls} from "./pages/pathAndSegment";
 import Lists from "./pages/Lists.svelte";
 import Countries from "./pages/Countries.svelte";
 import AddCountry from "./pages/AddCountry.svelte";
+import CountryDetail from "./pages/CountryDetail.svelte";
 
 export const routes = {
     // Exact path
@@ -84,6 +85,7 @@ const addRoute = (path: string, component: any) => {
 addRoute(urls.settings.list, Lists);
 addRoute(urls.countries.list, Countries);
 addRoute(urls.countries.add, AddCountry);
+addRoute(urls.countries.detail, CountryDetail);
 /*addRoute(urls.countries.edit, EditCountry);
 addRoute(urls.countries.detail, CountryDetail);*/
 
