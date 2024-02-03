@@ -844,6 +844,15 @@ export type User = {
   username?: Maybe<Scalars['String']['output']>;
 };
 
+export type SaveCountryMutationVariables = Exact<{
+  id?: InputMaybe<Scalars['Int']['input']>;
+  displayName: Scalars['String']['input'];
+  isoCode: Scalars['String']['input'];
+}>;
+
+
+export type SaveCountryMutation = { __typename?: 'Mutation', saveCountry: { __typename?: 'Country', id: number } };
+
 export type AccountingSchemeDetailPartsFragment = { __typename?: 'AccountingScheme', id: number, displayName: string, currency: { __typename?: 'Currency', id: number, isoCode: string, displayName: string } };
 
 export type AccountingSchemeListPartsFragment = { __typename?: 'AccountingScheme', id: number, displayName: string, currency: { __typename?: 'Currency', id: number, isoCode: string, displayName: string } };
@@ -1486,6 +1495,13 @@ export const SalesInvoiceListPartsFragmentDoc = gql`
   grandTotalAccountingSchemeCurrency
 }
     `;
+export const SaveCountryDoc = gql`
+    mutation SaveCountry($id: Int, $displayName: String!, $isoCode: String!) {
+  saveCountry(args: {id: $id, displayName: $displayName, isoCode: $isoCode}) {
+    id
+  }
+}
+    `;
 export const AccountingSchemeByIdDoc = gql`
     query accountingSchemeById($id: Int!) {
   accountingScheme(id: $id) {
@@ -1687,6 +1703,18 @@ export const SalesInvoicesDoc = gql`
   }
 }
     ${SalesInvoiceListPartsFragmentDoc}`;
+export const SaveCountry = (
+            options: Omit<
+              MutationOptions<any, SaveCountryMutationVariables>, 
+              "mutation"
+            >
+          ) => {
+            const m = client.mutate<SaveCountryMutation, SaveCountryMutationVariables>({
+              mutation: SaveCountryDoc,
+              ...options,
+            });
+            return m;
+          }
 export const accountingSchemeById = (
             options: Omit<
               WatchQueryOptions<AccountingSchemeByIdQueryVariables>, 
