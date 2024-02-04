@@ -1,0 +1,11 @@
+fragment TaxDetailParts on Tax {
+  id
+  isStandard
+  ratePercent
+}
+
+fragment TaxListParts on Tax {
+  id
+  isStandard
+  ratePercent
+}

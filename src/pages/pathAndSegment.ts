@@ -32,6 +32,12 @@ export const urls = {
         edit: 'country/:id',
         detail: 'country-detail/:id',
     },
+    taxes: {
+        list: 'taxes',
+        add: 'add-tax',
+        edit: 'tax/:id',
+        detail: 'tax-detail/:id',
+    },
     currencies: {
         list: 'currencies',
         add: 'add-currency',
@@ -96,6 +102,7 @@ export const segments = {
     factoringProviders: urls.factoringProviders.list,
     factoringContracts: urls.factoringContracts.list,
     attachments: urls.attachments.list,
+    taxes:urls.taxes.list,
 };
 
 export const push = (urlPattern: string, id: number | string | undefined) =>

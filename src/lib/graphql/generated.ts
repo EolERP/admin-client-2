@@ -1095,6 +1095,15 @@ export type SalesInvoicesQueryVariables = Exact<{ [key: string]: never; }>;
 
 export type SalesInvoicesQuery = { __typename?: 'Query', salesInvoices: Array<{ __typename?: 'SalesInvoice', id: number, documentNo?: string | null, grandTotalAccountingSchemeCurrency: number }> };
 
+export type TaxDetailPartsFragment = { __typename?: 'Tax', id: number, isStandard: boolean, ratePercent: number };
+
+export type TaxListPartsFragment = { __typename?: 'Tax', id: number, isStandard: boolean, ratePercent: number };
+
+export type TaxesQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type TaxesQuery = { __typename?: 'Query', taxes: Array<{ __typename?: 'Tax', id: number, isStandard: boolean, ratePercent: number }> };
+
 export type UnitOfMeasurementDetailPartsFragment = { __typename?: 'UnitOfMeasurement', id: number, displayName: string };
 
 export const AccountingSchemeListPartsFragmentDoc = gql`
@@ -1495,6 +1504,20 @@ export const SalesInvoiceListPartsFragmentDoc = gql`
   grandTotalAccountingSchemeCurrency
 }
     `;
+export const TaxDetailPartsFragmentDoc = gql`
+    fragment TaxDetailParts on Tax {
+  id
+  isStandard
+  ratePercent
+}
+    `;
+export const TaxListPartsFragmentDoc = gql`
+    fragment TaxListParts on Tax {
+  id
+  isStandard
+  ratePercent
+}
+    `;
 export const SaveCountryDoc = gql`
     mutation SaveCountry($id: Int, $displayName: String!, $isoCode: String!) {
   saveCountry(args: {id: $id, displayName: $displayName, isoCode: $isoCode}) {
@@ -1703,6 +1726,13 @@ export const SalesInvoicesDoc = gql`
   }
 }
     ${SalesInvoiceListPartsFragmentDoc}`;
+export const TaxesDoc = gql`
+    query Taxes {
+  taxes {
+    ...TaxListParts
+  }
+}
+    ${TaxListPartsFragmentDoc}`;
 export const SaveCountry = (
             options: Omit<
               MutationOptions<any, SaveCountryMutationVariables>, 
@@ -2648,6 +2678,41 @@ export const SalesInvoices = (
                 query: ObservableQuery<
                   SalesInvoicesQuery,
                   SalesInvoicesQueryVariables
+                >;
+              }
+            >(
+              { data: {} as any, loading: true, error: undefined, networkStatus: 1, query: q },
+              (set) => {
+                q.subscribe((v: any) => {
+                  set({ ...v, query: q });
+                });
+              }
+            );
+            return result;
+          }
+        
+export const Taxes = (
+            options: Omit<
+              WatchQueryOptions<TaxesQueryVariables>, 
+              "query"
+            >
+          ): Readable<
+            ApolloQueryResult<TaxesQuery> & {
+              query: ObservableQuery<
+                TaxesQuery,
+                TaxesQueryVariables
+              >;
+            }
+          > => {
+            const q = client.watchQuery({
+              query: TaxesDoc,
+              ...options,
+            });
+            var result = readable<
+              ApolloQueryResult<TaxesQuery> & {
+                query: ObservableQuery<
+                  TaxesQuery,
+                  TaxesQueryVariables
                 >;
               }
             >(
