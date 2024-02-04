@@ -2,10 +2,12 @@ fragment TaxDetailParts on Tax {
   id
   isStandard
   ratePercent
+  displayName
 }
 
 fragment TaxListParts on Tax {
   id
   isStandard
   ratePercent
+  displayName
 }

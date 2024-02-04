@@ -801,6 +801,7 @@ export type SalesInvoicesInTime = {
 
 export type Tax = {
   __typename?: 'Tax';
+  displayName: Scalars['String']['output'];
   id: Scalars['Float']['output'];
   isStandard: Scalars['Boolean']['output'];
   ratePercent: Scalars['Float']['output'];
@@ -852,6 +853,16 @@ export type SaveCountryMutationVariables = Exact<{
 
 
 export type SaveCountryMutation = { __typename?: 'Mutation', saveCountry: { __typename?: 'Country', id: number } };
+
+export type SaveTaxMutationVariables = Exact<{
+  displayName: Scalars['String']['input'];
+  id?: InputMaybe<Scalars['Int']['input']>;
+  isStandard: Scalars['Boolean']['input'];
+  ratePercent: Scalars['Float']['input'];
+}>;
+
+
+export type SaveTaxMutation = { __typename?: 'Mutation', saveTax: { __typename?: 'Tax', id: number } };
 
 export type AccountingSchemeDetailPartsFragment = { __typename?: 'AccountingScheme', id: number, displayName: string, currency: { __typename?: 'Currency', id: number, isoCode: string, displayName: string } };
 
@@ -1095,14 +1106,14 @@ export type SalesInvoicesQueryVariables = Exact<{ [key: string]: never; }>;
 
 export type SalesInvoicesQuery = { __typename?: 'Query', salesInvoices: Array<{ __typename?: 'SalesInvoice', id: number, documentNo?: string | null, grandTotalAccountingSchemeCurrency: number }> };
 
-export type TaxDetailPartsFragment = { __typename?: 'Tax', id: number, isStandard: boolean, ratePercent: number };
+export type TaxDetailPartsFragment = { __typename?: 'Tax', id: number, isStandard: boolean, ratePercent: number, displayName: string };
 
-export type TaxListPartsFragment = { __typename?: 'Tax', id: number, isStandard: boolean, ratePercent: number };
+export type TaxListPartsFragment = { __typename?: 'Tax', id: number, isStandard: boolean, ratePercent: number, displayName: string };
 
 export type TaxesQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type TaxesQuery = { __typename?: 'Query', taxes: Array<{ __typename?: 'Tax', id: number, isStandard: boolean, ratePercent: number }> };
+export type TaxesQuery = { __typename?: 'Query', taxes: Array<{ __typename?: 'Tax', id: number, isStandard: boolean, ratePercent: number, displayName: string }> };
 
 export type UnitOfMeasurementDetailPartsFragment = { __typename?: 'UnitOfMeasurement', id: number, displayName: string };
 
@@ -1509,6 +1520,7 @@ export const TaxDetailPartsFragmentDoc = gql`
   id
   isStandard
   ratePercent
+  displayName
 }
     `;
 export const TaxListPartsFragmentDoc = gql`
@@ -1516,11 +1528,21 @@ export const TaxListPartsFragmentDoc = gql`
   id
   isStandard
   ratePercent
+  displayName
 }
     `;
 export const SaveCountryDoc = gql`
     mutation SaveCountry($id: Int, $displayName: String!, $isoCode: String!) {
   saveCountry(args: {id: $id, displayName: $displayName, isoCode: $isoCode}) {
+    id
+  }
+}
+    `;
+export const SaveTaxDoc = gql`
+    mutation SaveTax($displayName: String!, $id: Int, $isStandard: Boolean!, $ratePercent: Float!) {
+  saveTax(
+    args: {id: $id, displayName: $displayName, isStandard: $isStandard, ratePercent: $ratePercent}
+  ) {
     id
   }
 }
@@ -1741,6 +1763,18 @@ export const SaveCountry = (
           ) => {
             const m = client.mutate<SaveCountryMutation, SaveCountryMutationVariables>({
               mutation: SaveCountryDoc,
+              ...options,
+            });
+            return m;
+          }
+export const SaveTax = (
+            options: Omit<
+              MutationOptions<any, SaveTaxMutationVariables>, 
+              "mutation"
+            >
+          ) => {
+            const m = client.mutate<SaveTaxMutation, SaveTaxMutationVariables>({
+              mutation: SaveTaxDoc,
               ...options,
             });
             return m;

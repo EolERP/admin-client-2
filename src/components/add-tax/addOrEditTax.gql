@@ -1,0 +1,14 @@
+mutation SaveTax(
+  $displayName: String!
+  $id: Int
+  $isStandard: Boolean!
+  $ratePercent: Float!
+) { saveTax( args :
+{
+    id: $id
+    displayName: $displayName
+    isStandard: $isStandard
+    ratePercent: $ratePercent
+}
+
+) { id } }

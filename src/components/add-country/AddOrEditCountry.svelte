@@ -9,7 +9,7 @@
 
     const saveCountry = async () => {
         if (displayName && isoCode) {
-            const { data } = await SaveCountry({variables: { displayName, isoCode }})
+            const { data } = await SaveCountry({variables: { id, displayName, isoCode }})
             if (data && data.saveCountry) await push(urls.countries.detail, data.saveCountry.id);
         }
     };

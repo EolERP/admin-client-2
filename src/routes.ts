@@ -63,6 +63,7 @@ import Countries from "./pages/Countries.svelte";
 import AddCountry from "./pages/AddCountry.svelte";
 import CountryDetail from "./pages/CountryDetail.svelte";
 import Taxes from "./pages/Taxes.svelte";
+import AddTax from "./pages/AddTax.svelte";
 
 export const routes = {
     // Exact path
@@ -88,6 +89,7 @@ addRoute(urls.countries.list, Countries);
 addRoute(urls.countries.add, AddCountry);
 addRoute(urls.countries.detail, CountryDetail);
 addRoute(urls.taxes.list, Taxes);
+addRoute(urls.taxes.add, AddTax);
 /*addRoute(urls.countries.edit, EditCountry);
 addRoute(urls.countries.detail, CountryDetail);*/
 
