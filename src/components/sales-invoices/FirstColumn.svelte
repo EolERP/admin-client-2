@@ -1,5 +1,7 @@
 <script lang="ts">
     import type { SalesInvoiceRow } from '../../lib/model/salesInvoice';
+    import {_} from "svelte-i18n";
+    import {DuplicateSalesInvoice} from "../../lib/graphql/generated";
 
     export let row: SalesInvoiceRow;
 
@@ -11,6 +13,10 @@
             (window as any).token || '',
             id,
         )*/;
+
+    const duplicate = async (id: number) => {
+        await DuplicateSalesInvoice({variables: { id }});
+    };
 </script>
 
 <div class="flex items-center">
@@ -26,5 +32,10 @@
         <div class="text-sm text-gray-500">
             {row.grandTotalAccountingSchemeCurrency}
         </div>
+        <a
+                on:click={() => duplicate(row.id)}
+                href="#"
+                class="text-blue-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+        >{$_('page.salesInvoices.duplicate.title')}</a>
     </div>
 </div>
