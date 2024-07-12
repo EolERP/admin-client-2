@@ -2,6 +2,7 @@
     import type { SalesInvoiceRow } from '../../lib/model/salesInvoice';
     import {_} from "svelte-i18n";
     import {DuplicateSalesInvoice} from "../../lib/graphql/generated";
+    import {RevertSalesInvoice} from "../../lib/graphql/generated.js";
 
     export let row: SalesInvoiceRow;
 
@@ -16,6 +17,9 @@
 
     const duplicate = async (id: number) => {
         await DuplicateSalesInvoice({variables: { id }});
+    };
+    const revert = async (id: number) => {
+        await RevertSalesInvoice({variables: { id }});
     };
 </script>
 
@@ -37,5 +41,10 @@
                 href="#"
                 class="text-blue-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
         >{$_('page.salesInvoices.duplicate.title')}</a>
+        <a
+                on:click={() => revert(row.id)}
+                href="#"
+                class="text-blue-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+        >{$_('page.salesInvoices.revert.title')}</a>
     </div>
 </div>
