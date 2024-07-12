@@ -332,6 +332,7 @@ type Mutation {
   duplicateSalesInvoice(id: Int!): SalesInvoice!
   keepAlive: UniversalDateTime!
   publishSalesInvoice(args: SalesInvoicePublishArgs!): SalesInvoice!
+  revertSalesInvoice(id: Int!): SalesInvoice!
   saveAccountingScheme(args: AccountingSchemeSaveArgs!): AccountingScheme!
   saveAttachment(args: AttachmentSaveArgs!): Attachment!
   saveBank(args: BankSaveArgs!): Bank!

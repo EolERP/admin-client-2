@@ -372,6 +372,7 @@ export type Mutation = {
   duplicateSalesInvoice: SalesInvoice;
   keepAlive: Scalars['UniversalDateTime']['output'];
   publishSalesInvoice: SalesInvoice;
+  revertSalesInvoice: SalesInvoice;
   saveAccountingScheme: AccountingScheme;
   saveAttachment: Attachment;
   saveBank: Bank;
@@ -409,6 +410,11 @@ export type MutationDuplicateSalesInvoiceArgs = {
 
 export type MutationPublishSalesInvoiceArgs = {
   args: SalesInvoicePublishArgs;
+};
+
+
+export type MutationRevertSalesInvoiceArgs = {
+  id: Scalars['Int']['input'];
 };
 
 
@@ -1089,6 +1095,13 @@ export type DuplicateSalesInvoiceMutationVariables = Exact<{
 
 export type DuplicateSalesInvoiceMutation = { __typename?: 'Mutation', duplicateSalesInvoice: { __typename?: 'SalesInvoice', id: number } };
 
+export type RevertSalesInvoiceMutationVariables = Exact<{
+  id: Scalars['Int']['input'];
+}>;
+
+
+export type RevertSalesInvoiceMutation = { __typename?: 'Mutation', revertSalesInvoice: { __typename?: 'SalesInvoice', id: number } };
+
 export type PublishSalesInvoiceMutationVariables = Exact<{
   id: Scalars['Int']['input'];
   attachmentIds: Array<Scalars['String']['input']> | Scalars['String']['input'];
@@ -1730,6 +1743,13 @@ export const SalesInvoiceByIdDoc = gql`
 export const DuplicateSalesInvoiceDoc = gql`
     mutation DuplicateSalesInvoice($id: Int!) {
   duplicateSalesInvoice(id: $id) {
+    id
+  }
+}
+    `;
+export const RevertSalesInvoiceDoc = gql`
+    mutation RevertSalesInvoice($id: Int!) {
+  revertSalesInvoice(id: $id) {
     id
   }
 }
@@ -2674,6 +2694,18 @@ export const DuplicateSalesInvoice = (
           ) => {
             const m = client.mutate<DuplicateSalesInvoiceMutation, DuplicateSalesInvoiceMutationVariables>({
               mutation: DuplicateSalesInvoiceDoc,
+              ...options,
+            });
+            return m;
+          }
+export const RevertSalesInvoice = (
+            options: Omit<
+              MutationOptions<any, RevertSalesInvoiceMutationVariables>, 
+              "mutation"
+            >
+          ) => {
+            const m = client.mutate<RevertSalesInvoiceMutation, RevertSalesInvoiceMutationVariables>({
+              mutation: RevertSalesInvoiceDoc,
               ...options,
             });
             return m;

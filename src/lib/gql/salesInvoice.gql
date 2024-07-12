@@ -10,6 +10,12 @@ mutation DuplicateSalesInvoice($id: Int!) {
     }
 }
 
+mutation RevertSalesInvoice($id: Int!) {
+    revertSalesInvoice(id: $id) {
+        id
+    }
+}
+
 mutation PublishSalesInvoice(
     $id: Int!
     $attachmentIds: [String!]!
