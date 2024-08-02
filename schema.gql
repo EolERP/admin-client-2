@@ -443,6 +443,7 @@ type Query {
   products: [Product!]!
   salesInvoice(id: Int!): SalesInvoice!
   salesInvoices: [SalesInvoice!]!
+  salesInvoicesByCustomer(customerId: Int!): [SalesInvoice!]!
   salesInvoicesReport: [SalesInvoicesInTime!]!
   tax(id: Int!): Tax!
   taxes: [Tax!]!

@@ -3,6 +3,8 @@
     import type { CustomerDetail } from '../../lib/model/customer';
     import {printableString} from "../../lib/support/util";
     import Break from "../../molecules/form/Break.svelte";
+    import {SalesInvoicesByCustomer} from "../../lib/graphql/generated";
+    import SalesInvoiceList from "../sales-invoices/SalesInvoiceList.svelte";
 
     export let customer: CustomerDetail = {
         address: {
@@ -12,6 +14,8 @@
             country: {}
         },
     } as CustomerDetail;
+
+    $: salesInvoices = customer ? SalesInvoicesByCustomer({variables: { customerId: customer.id }}) : [];
 </script>
 
 <div class="bg-white shadow overflow-hidden sm:rounded-lg">
@@ -254,3 +258,11 @@
         </dl>
     </div>
 </div>
+
+<Break />
+
+{#if $salesInvoices}
+    <SalesInvoiceList salesInvoices={$salesInvoices.data.salesInvoicesByCustomer} />
+{:else}
+    {$_('status.loading')}
+{/if}

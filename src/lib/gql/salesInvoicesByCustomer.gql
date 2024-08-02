@@ -1,0 +1,6 @@
+query SalesInvoicesByCustomer($customerId: Int!)
+        {
+            salesInvoicesByCustomer(customerId: $customerId) {
+                ...SalesInvoiceListParts
+            }
+        }

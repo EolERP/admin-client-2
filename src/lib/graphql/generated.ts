@@ -596,6 +596,7 @@ export type Query = {
   products: Array<Product>;
   salesInvoice: SalesInvoice;
   salesInvoices: Array<SalesInvoice>;
+  salesInvoicesByCustomer: Array<SalesInvoice>;
   salesInvoicesReport: Array<SalesInvoicesInTime>;
   tax: Tax;
   taxes: Array<Tax>;
@@ -690,6 +691,11 @@ export type QueryProductArgs = {
 
 export type QuerySalesInvoiceArgs = {
   id: Scalars['Int']['input'];
+};
+
+
+export type QuerySalesInvoicesByCustomerArgs = {
+  customerId: Scalars['Int']['input'];
 };
 
 
@@ -1118,6 +1124,13 @@ export type SalesInvoicesQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type SalesInvoicesQuery = { __typename?: 'Query', salesInvoices: Array<{ __typename?: 'SalesInvoice', id: number, documentNo?: string | null, grandTotalAccountingSchemeCurrency: number }> };
+
+export type SalesInvoicesByCustomerQueryVariables = Exact<{
+  customerId: Scalars['Int']['input'];
+}>;
+
+
+export type SalesInvoicesByCustomerQuery = { __typename?: 'Query', salesInvoicesByCustomer: Array<{ __typename?: 'SalesInvoice', id: number, documentNo?: string | null, grandTotalAccountingSchemeCurrency: number }> };
 
 export type TaxDetailPartsFragment = { __typename?: 'Tax', id: number, isStandard: boolean, ratePercent: number, displayName: string };
 
@@ -1764,6 +1777,13 @@ export const PublishSalesInvoiceDoc = gql`
 export const SalesInvoicesDoc = gql`
     query SalesInvoices {
   salesInvoices {
+    ...SalesInvoiceListParts
+  }
+}
+    ${SalesInvoiceListPartsFragmentDoc}`;
+export const SalesInvoicesByCustomerDoc = gql`
+    query SalesInvoicesByCustomer($customerId: Int!) {
+  salesInvoicesByCustomer(customerId: $customerId) {
     ...SalesInvoiceListParts
   }
 }
@@ -2744,6 +2764,41 @@ export const SalesInvoices = (
                 query: ObservableQuery<
                   SalesInvoicesQuery,
                   SalesInvoicesQueryVariables
+                >;
+              }
+            >(
+              { data: {} as any, loading: true, error: undefined, networkStatus: 1, query: q },
+              (set) => {
+                q.subscribe((v: any) => {
+                  set({ ...v, query: q });
+                });
+              }
+            );
+            return result;
+          }
+        
+export const SalesInvoicesByCustomer = (
+            options: Omit<
+              WatchQueryOptions<SalesInvoicesByCustomerQueryVariables>, 
+              "query"
+            >
+          ): Readable<
+            ApolloQueryResult<SalesInvoicesByCustomerQuery> & {
+              query: ObservableQuery<
+                SalesInvoicesByCustomerQuery,
+                SalesInvoicesByCustomerQueryVariables
+              >;
+            }
+          > => {
+            const q = client.watchQuery({
+              query: SalesInvoicesByCustomerDoc,
+              ...options,
+            });
+            var result = readable<
+              ApolloQueryResult<SalesInvoicesByCustomerQuery> & {
+                query: ObservableQuery<
+                  SalesInvoicesByCustomerQuery,
+                  SalesInvoicesByCustomerQueryVariables
                 >;
               }
             >(
