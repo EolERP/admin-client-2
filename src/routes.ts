@@ -66,6 +66,7 @@ import Taxes from "./pages/Taxes.svelte";
 import AddTax from "./pages/AddTax.svelte";
 import SalesInvoices from "./pages/SalesInvoices.svelte";
 import Customers from "./pages/Customers.svelte";
+import CustomerDetail from "./pages/CustomerDetail.svelte";
 
 export const routes = {
     // Exact path
@@ -98,11 +99,11 @@ addRoute(urls.salesInvoices.list, SalesInvoices);
 addRoute(urls.countries.detail, CountryDetail);*/
 
 addRoute(segments.customers, Customers);
+addRoute(urls.customer.detail, CustomerDetail);
 
 /*
 addRoute(urls.customer.add, AddCustomer);
 addRoute(urls.customer.edit, EditCustomer);
-addRoute(urls.customer.detail, CustomerDetail);
 addRoute(urls.salesInvoices.edit, EditSalesInvoice);
 addRoute(urls.salesInvoices.detail, SalesInvoiceDetail);
 addRoute(urls.salesInvoices.publish, SalesInvoicePublish);
