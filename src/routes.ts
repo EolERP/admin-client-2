@@ -57,7 +57,7 @@ import EditAttachment from './pages/EditAttachment.svelte';
 import AttachmentDetail from './pages/AttachmentDetail.svelte';
 */
 import Home from "./pages/Home.svelte";
-import {urls} from "./pages/pathAndSegment";
+import {segments, urls} from "./pages/pathAndSegment";
 import Lists from "./pages/Lists.svelte";
 import Countries from "./pages/Countries.svelte";
 import AddCountry from "./pages/AddCountry.svelte";
@@ -65,6 +65,7 @@ import CountryDetail from "./pages/CountryDetail.svelte";
 import Taxes from "./pages/Taxes.svelte";
 import AddTax from "./pages/AddTax.svelte";
 import SalesInvoices from "./pages/SalesInvoices.svelte";
+import Customers from "./pages/Customers.svelte";
 
 export const routes = {
     // Exact path
@@ -96,7 +97,9 @@ addRoute(urls.salesInvoices.list, SalesInvoices);
 /*addRoute(urls.countries.edit, EditCountry);
 addRoute(urls.countries.detail, CountryDetail);*/
 
-/*addRoute(segments.customers, Customers);
+addRoute(segments.customers, Customers);
+
+/*
 addRoute(urls.customer.add, AddCustomer);
 addRoute(urls.customer.edit, EditCustomer);
 addRoute(urls.customer.detail, CustomerDetail);

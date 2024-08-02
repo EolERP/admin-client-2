@@ -1,4 +1,4 @@
 import { store } from '../support/store';
-import type {CountryListPartsFragment} from "../graphql/generated";
+import type {CountryRow} from "../model/country";
 
-export const countriesStore = store<CountryListPartsFragment[] | undefined>(undefined); // start with no menu
+export const countriesStore = store<CountryRow[] | undefined>(undefined); // start with no menu
